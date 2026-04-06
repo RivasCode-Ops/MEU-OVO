@@ -40,7 +40,7 @@ export function linkOrderWhatsApp(params: {
     return `• ${i.quantity}x ${i.name} — ${formatPriceBRL(i.unitPrice)} / un. → ${formatPriceBRL(sub)}`;
   });
   const text = [
-    "Olá! Pedido pelo site Meu Ovo:",
+    "Olá! Pedido pelo site BIFEDOOLHAO:",
     "",
     `Nome / estabelecimento: ${nome}`,
     `Tipo de cliente: ${customerTypeLabel[customerType]}`,

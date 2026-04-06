@@ -8,7 +8,7 @@ export function App() {
       <header className="header">
         <Link to="/" className="header-brand">
           <span className="logo-mark" aria-hidden />
-          <span className="logo-text">Meu Ovo</span>
+          <span className="logo-text">BIFEDOOLHAO</span>
         </Link>
       </header>
 
@@ -18,7 +18,7 @@ export function App() {
       </Routes>
 
       <footer className="footer">
-        <small>© {new Date().getFullYear()} Meu Ovo</small>
+        <small>© {new Date().getFullYear()} BIFEDOOLHAO</small>
       </footer>
     </div>
   );

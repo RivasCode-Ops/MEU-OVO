@@ -1,4 +1,4 @@
-/** Catálogo Meu Ovo — campos para MVP e evolução (imagens opcionais). */
+/** Catálogo BIFEDOOLHAO — campos para MVP e evolução (imagens opcionais). */
 export type Product = {
   id: string;
   name: string;

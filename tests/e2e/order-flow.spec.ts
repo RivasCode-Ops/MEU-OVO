@@ -5,7 +5,7 @@ const PRODUCT_VERMELHO = "Cartela com 30 ovos vermelhos";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/produtos");
-  await page.evaluate(() => sessionStorage.removeItem("meuovo:order"));
+  await page.evaluate(() => sessionStorage.removeItem("bifedoolhao:order"));
   await page.reload();
 });
 

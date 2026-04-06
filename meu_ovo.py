@@ -1,5 +1,5 @@
 def main():
-    print("Sistema meu_ovo iniciado")
+    print("Sistema BIFEDOOLHAO iniciado")
 
 
 if __name__ == "__main__":

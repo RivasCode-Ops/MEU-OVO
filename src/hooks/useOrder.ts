@@ -3,7 +3,7 @@ import type { CustomerType, OrderItem } from "../types/order";
 
 export type { CustomerType, OrderItem } from "../types/order";
 
-const STORAGE_KEY = "meuovo:order";
+const STORAGE_KEY = "bifedoolhao:order";
 
 const VALID_CUSTOMER_TYPES: CustomerType[] = [
   "residencial",

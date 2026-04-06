@@ -8,7 +8,7 @@ export const products: Product[] = [
     price: 22.9,
     unit: "cartela com 30 unidades",
     category: "Cartelas",
-    imageAlt: "Cartela de ovos brancos Meu Ovo",
+    imageAlt: "Cartela de ovos brancos BIFEDOOLHAO",
     featured: true,
   },
   {
@@ -18,7 +18,7 @@ export const products: Product[] = [
     price: 24.9,
     unit: "cartela com 30 unidades",
     category: "Cartelas",
-    imageAlt: "Cartela de ovos vermelhos Meu Ovo",
+    imageAlt: "Cartela de ovos vermelhos BIFEDOOLHAO",
     featured: false,
   },
   {
@@ -28,7 +28,7 @@ export const products: Product[] = [
     price: 29.9,
     unit: "cartela com 30 unidades",
     category: "Cartelas",
-    imageAlt: "Cartela de ovos caipiras Meu Ovo",
+    imageAlt: "Cartela de ovos caipiras BIFEDOOLHAO",
     featured: false,
   },
 ];
