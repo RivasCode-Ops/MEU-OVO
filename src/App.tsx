@@ -18,7 +18,12 @@ export function App() {
       </Routes>
 
       <footer className="footer">
-        <small>© {new Date().getFullYear()} BIFEDOOLHAO</small>
+        <small>
+          © {new Date().getFullYear()} BIFEDOOLHAO · Merkus ·{" "}
+          <a href="https://www.merkus.com.br/" rel="noopener noreferrer">
+            merkus.com.br
+          </a>
+        </small>
       </footer>
     </div>
   );

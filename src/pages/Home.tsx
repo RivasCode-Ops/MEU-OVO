@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export function Home() {
   return (
     <main className="hero">
-      <p className="eyebrow">Qualidade na sua mesa</p>
+      <p className="eyebrow">Merkus · Qualidade na sua mesa</p>
       <h1 className="title">Ovos frescos, do jeito que você merece.</h1>
       <p className="lede">
         Veja as cartelas disponíveis e feche seu pedido em um toque pelo WhatsApp.

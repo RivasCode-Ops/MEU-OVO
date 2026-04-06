@@ -148,6 +148,15 @@ body {
   font-size: 0.875rem;
 }
 
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
 .products {
   flex: 1;
   display: flex;
