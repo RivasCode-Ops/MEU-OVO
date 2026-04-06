@@ -1,9 +1,16 @@
+import { OrderSummary } from "../components/OrderSummary";
 import { products } from "../data/products";
+import { useOrder } from "../hooks/useOrder";
 import type { Product } from "../types/product";
 import { formatPriceBRL } from "../utils/formatCurrency";
-import { linkPedidoWhatsApp } from "../utils/whatsapp";
 
-function ProductCard({ p }: { p: Product }) {
+function ProductCard({
+  p,
+  onAdd,
+}: {
+  p: Product;
+  onAdd: () => void;
+}) {
   return (
     <li className="product-card">
       <div className="product-card-top">
@@ -26,31 +33,52 @@ function ProductCard({ p }: { p: Product }) {
           <p className="product-price">{formatPriceBRL(p.price)}</p>
         </div>
       </div>
-      <a
-        href={linkPedidoWhatsApp(p)}
+      <button
+        type="button"
         className="btn btn-primary product-cta"
-        target="_blank"
-        rel="noopener noreferrer"
+        onClick={onAdd}
       >
-        Fazer pedido
-      </a>
+        Adicionar ao pedido
+      </button>
     </li>
   );
 }
 
 export function Products() {
+  const order = useOrder();
+
   return (
     <main className="products">
       <p className="eyebrow">Catálogo</p>
       <h1 className="title products-title">Nossas cartelas</h1>
       <p className="lede products-lede">
-        Escolha uma opção e envie o pedido pelo WhatsApp com os dados já preenchidos.
+        Monte seu pedido abaixo e envie tudo em uma única mensagem pelo WhatsApp.
       </p>
       <ul className="product-list">
         {products.map((p) => (
-          <ProductCard key={p.id} p={p} />
+          <ProductCard
+            key={p.id}
+            p={p}
+            onAdd={() =>
+              order.addItem({
+                id: p.id,
+                name: p.name,
+                unitPrice: p.price,
+              })
+            }
+          />
         ))}
       </ul>
+      <OrderSummary
+        items={order.items}
+        total={order.total}
+        customerName={order.customerName}
+        customerType={order.customerType}
+        setCustomerName={order.setCustomerName}
+        setCustomerType={order.setCustomerType}
+        updateQuantity={order.updateQuantity}
+        clearOrder={order.clearOrder}
+      />
     </main>
   );
 }

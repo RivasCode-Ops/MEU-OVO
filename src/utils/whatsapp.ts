@@ -1,4 +1,4 @@
-import type { Product } from "../types/product";
+import type { CustomerType, OrderItem } from "../types/order";
 import { formatPriceBRL } from "./formatCurrency";
 
 /**
@@ -16,18 +16,39 @@ function whatsappDigits(): string {
   return digits.length > 0 ? digits : fallback;
 }
 
+const customerTypeLabel: Record<CustomerType, string> = {
+  residencial: "Residencial",
+  restaurante: "Restaurante",
+  mercado: "Mercado",
+  padaria: "Padaria",
+};
+
 /**
- * Monta texto comercial para "Click to chat" (https://faq.whatsapp.com/5913398998672934)
- * e URL wa.me — toda a lógica de pedido fica aqui, fora dos componentes.
+ * Pedido com vários itens — mensagem única para wa.me
  */
-export function linkPedidoWhatsApp(product: Product): string {
-  const preco = formatPriceBRL(product.price);
+export function linkOrderWhatsApp(params: {
+  items: OrderItem[];
+  customerName: string;
+  customerType: CustomerType;
+  total: number;
+}): string {
+  const { items, customerName, customerType, total } = params;
+  const nome =
+    customerName.trim() || "(não informado — pode informar no chat)";
+  const lines = items.map((i) => {
+    const sub = i.unitPrice * i.quantity;
+    return `• ${i.quantity}x ${i.name} — ${formatPriceBRL(i.unitPrice)} / un. → ${formatPriceBRL(sub)}`;
+  });
   const text = [
-    "Olá! Vim pelo site Meu Ovo e quero pedir:",
+    "Olá! Pedido pelo site Meu Ovo:",
     "",
-    `• ${product.name}`,
-    `• ${preco} (${product.unit})`,
-    `• Ref.: ${product.id}`,
+    `Nome / estabelecimento: ${nome}`,
+    `Tipo de cliente: ${customerTypeLabel[customerType]}`,
+    "",
+    "Itens:",
+    ...lines,
+    "",
+    `Total estimado: ${formatPriceBRL(total)}`,
     "",
     "Pode confirmar disponibilidade, entrega e forma de pagamento?",
     "Obrigado!",
